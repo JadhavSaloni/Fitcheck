@@ -199,6 +199,11 @@ app.post('/Login', async(res, req) =>{
   }
 })
 
+app.use(express.static("./frontend/App.jsx"));
+app.get("*",(req, res) => {
+  res.sendFile(path.resolve(__dirname,"Frontend","App.jsx"))
+})
+
 app.listen(port, (error) => {
   if (!error) {
     console.log("server is running on port " + port);
